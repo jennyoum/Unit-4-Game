@@ -10,10 +10,34 @@
     <title>Gem Game</title>
 </head>
 <body>
-    <p id="win"></p>
-    <p id="loss"></p>
-    <p id="random-number"></p>
-    <p id="total-score"></p>
+        <div id="randnumBox">
+                <div class="randnum">
+                    <div>
+                        <h3>Random Number: </h3>
+                        <p class="random-number-display"></p>
+                        <span id="total-score"></span>
+                    </div>
+                </div>
+            </div>
+        <div>
+            <h3>Wins: </h3>
+            <span id="wins"></span>
+        </div> 
+        <div>
+            <h3>Losses: </h3>
+            <span id="losses"></span>
+        </div>   
+        <div id="scoreBox">
+            <div class="score">
+                <div>
+                    <h3>Total Score: </h3>
+                    <p class="scoreDisplay"></p>
+                    <span id="total-score"></span>
+                </div>
+            </div>
+        </div>
+
+    <p id="numbertoget"></p>
 
     <section>
         <div class="container">
@@ -55,7 +79,7 @@
         
     </section>
 
-    <script type="text/javascript">
+    <script>
     $(document).ready(function() {
         var diamond;
         var emerald;
@@ -66,19 +90,75 @@
         var totalScore = 0;
         var randomNumber = 0;
 
+        var diamond = Math.floor(Math.random() * (12 - 1) + 1);
+        var emerald = Math.floor(Math.random() * (12 - 1) + 1);
+        var gemsapphire = Math.floor(Math.random() * (12 - 1) + 1);
+        var ruby = Math.floor(Math.random() * (12 - 1) + 1);
+
         function startGame(){
-            randomNumber = Math.floor( Math.random() * (19 - 120) + 19);
-            $("#diamond").on("click", function(){
-                var diamond = Math.floor( Math.random() * (1 - 12) + 1)});
-            $("#emerald").on("click", function(){
-                var emerald = Math.floor(Math.random() * (1 - 12) + 1)});
-            $("#gemsapphire").on("click", function(){
-                var gemsapphire = Math.floor(Math.random() * (1 - 12) + 1)});
-            $("#ruby").on("click", function(){
-                var ruby = Math.floor(Math.random() * (1 - 12) + 1)});
+            randomNumber = Math.floor(Math.random() * (120 - 19) + 19);
+            console.log(randomNumber);
+            var diamond = Math.floor(Math.random() * (12 - 1) + 1);
+            console.log(diamond)
+            var emerald = Math.floor(Math.random() * (12 - 1) + 1);
+            console.log(emerald)
+            var gemsapphire = Math.floor(Math.random() * (12 - 1) + 1);
+            console.log(gemsapphire)
+            var ruby = Math.floor(Math.random() * (12 - 1) + 1);
+            console.log(ruby)
+
+            var wins = 0
+            var losses = 0
+            var totalScore = 0
+
+            $(".random-number-display").html(randomNumber);
+            $(".scoreDisplay").html(totalScore);
         }
-                
-    }
+
+        function resetGame(){
+            randomNumber = Math.floor(Math.random() * (120 - 19) + 19);
+            console.log(randomNumber);
+            var diamond = Math.floor(Math.random() * (12 - 1) + 1);
+            console.log(diamond)
+            var emerald = Math.floor(Math.random() * (12 - 1) + 1);
+            console.log(emerald)
+            var gemsapphire = Math.floor(Math.random() * (12 - 1) + 1);
+            console.log(gemsapphire)
+            var ruby = Math.floor(Math.random() * (12 - 1) + 1);
+            console.log(ruby)
+
+            var wins = 0
+            var losses = 0
+            var totalScore = 0
+
+            $(".random-number-display").html(randomNumber);
+            $(".scoreDisplay").html(totalScore);
+        }
+
+        startGame();
+        $(".card").on("click", function(){
+            var total = $(this).attr("value");
+            totalScore = parseInt(totalScore) + parseInt(total);
+            $(".scoreDisplay").html(totalScore);
+
+            if (randomNumber == totalScore){
+                alert("You won!");
+                win++
+                $("#wins").html(win);
+                $(".scoreDisplay").html();
+            }
+            else {
+                alert("You lost!");
+                losses++
+                $("#losses").html(losses);
+                $(".scoreDisplay").html();
+                resetGame();
+            }  
+        }      
+
+            
+    
+    };
     </script>
 
     
