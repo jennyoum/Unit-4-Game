@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Gem Game</title>
 </head>
 <body>
@@ -81,30 +81,28 @@
 
     <script>
     $(document).ready(function() {
-        var diamond;
-        var emerald;
-        var gemsapphire;
-        var ruby;
+
         var wins = 0;
         var losses = 0;
         var totalScore = 0;
         var randomNumber = 0;
+        var total = 0;
 
-        var diamond = Math.floor(Math.random() * (12 - 1) + 1);
-        var emerald = Math.floor(Math.random() * (12 - 1) + 1);
-        var gemsapphire = Math.floor(Math.random() * (12 - 1) + 1);
-        var ruby = Math.floor(Math.random() * (12 - 1) + 1);
+        var diamond = 0;
+        var emerald = 0;
+        var gemsapphire = 0;
+        var ruby = 0;
 
         function startGame(){
             randomNumber = Math.floor(Math.random() * (120 - 19) + 19);
             console.log(randomNumber);
-            var diamond = Math.floor(Math.random() * (12 - 1) + 1);
+            diamond = Math.floor(Math.random() * (12 - 1) + 1);
             console.log(diamond)
-            var emerald = Math.floor(Math.random() * (12 - 1) + 1);
+            emerald = Math.floor(Math.random() * (12 - 1) + 1);
             console.log(emerald)
-            var gemsapphire = Math.floor(Math.random() * (12 - 1) + 1);
+            gemsapphire = Math.floor(Math.random() * (12 - 1) + 1);
             console.log(gemsapphire)
-            var ruby = Math.floor(Math.random() * (12 - 1) + 1);
+            ruby = Math.floor(Math.random() * (12 - 1) + 1);
             console.log(ruby)
 
             var wins = 0
@@ -118,13 +116,13 @@
         function resetGame(){
             randomNumber = Math.floor(Math.random() * (120 - 19) + 19);
             console.log(randomNumber);
-            var diamond = Math.floor(Math.random() * (12 - 1) + 1);
+            diamond = Math.floor(Math.random() * (12 - 1) + 1);
             console.log(diamond)
-            var emerald = Math.floor(Math.random() * (12 - 1) + 1);
+            emerald = Math.floor(Math.random() * (12 - 1) + 1);
             console.log(emerald)
-            var gemsapphire = Math.floor(Math.random() * (12 - 1) + 1);
+            gemsapphire = Math.floor(Math.random() * (12 - 1) + 1);
             console.log(gemsapphire)
-            var ruby = Math.floor(Math.random() * (12 - 1) + 1);
+            ruby = Math.floor(Math.random() * (12 - 1) + 1);
             console.log(ruby)
 
             var wins = 0
@@ -137,26 +135,40 @@
 
         startGame();
         $(".card").on("click", function(){
-            var total = $(this).attr("value");
-            totalScore = parseInt(totalScore) + parseInt(total);
+    
             $(".scoreDisplay").html(totalScore);
+
+            console.log("random:" + randomNumber + "  total:" + totalScore);
 
             if (randomNumber == totalScore){
                 alert("You won!");
-                win++
+                win++;
                 $("#wins").html(win);
                 $(".scoreDisplay").html();
             }
-            else {
+            else if (randomNumber < totalScore) {
                 alert("You lost!");
-                losses++
+                losses++;
                 $("#losses").html(losses);
                 $(".scoreDisplay").html();
                 resetGame();
             }  
         })      
 
-            
+        $("#white-diamond").on("click", function(){
+            console.log(diamond);
+            totalScore = totalScore + diamond;
+            //totalScore+=diamond;
+        })
+        $("#green-emerald").on("click", function(){
+            totalScore+=emerald;
+        })
+        $("#blue-sapphire").on("click", function(){
+            totalScore+=gemsapphire;
+        })       
+        $("#red-ruby").on("click", function(){
+            totalScore+=ruby;
+        })  
     
     });
     </script>
