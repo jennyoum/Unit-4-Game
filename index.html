@@ -46,7 +46,6 @@
                     <div class="card" id="white-diamond" style="width: 100%;">
                     <img src="assets/images/diamond.jpg" class="card-img-top" alt="Diamond">
                         <div class="card-body">
-                        <a href="#" class="btn">Click here</a>
                         </div>
                     </div>
                 </div>
@@ -54,7 +53,6 @@
                 <div class="card" id="green-emerald" style="width: 100%;">
                 <img src="assets/images/emerald.jpg" class="card-img-top" alt="Emerald">
                     <div class="card-body">
-                    <a href="#" class="btn">Click here</a>
                     </div>
                 </div>
             </div>
@@ -62,7 +60,6 @@
                     <div class="card" id="blue-sapphire" style="width: 100%;">
                     <img src="assets/images/gemsapphire.jpg" class="card-img-top" alt="Gem Sapphire">
                         <div class="card-body">
-                        <a href="#" class="btn">Click here</a>
                         </div>
                     </div>
                 </div>
@@ -70,7 +67,6 @@
                         <div class="card" id="red-ruby" style="width: 100%;">
                         <img src="assets/images/ruby.jpg" class="card-img-top" alt="Ruby">
                             <div class="card-body">
-                            <a href="#" class="btn">Click here</a>
                             </div>
                         </div>
                     </div>
@@ -105,9 +101,9 @@
             ruby = Math.floor(Math.random() * (12 - 1) + 1);
             console.log(ruby)
 
-            var wins = 0
-            var losses = 0
-            var totalScore = 0
+            wins = 0
+            losses = 0
+            totalScore = 0
 
             $(".random-number-display").html(randomNumber);
             $(".scoreDisplay").html(totalScore);
@@ -125,9 +121,7 @@
             ruby = Math.floor(Math.random() * (12 - 1) + 1);
             console.log(ruby)
 
-            var wins = 0
-            var losses = 0
-            var totalScore = 0
+            totalScore = 0
 
             $(".random-number-display").html(randomNumber);
             $(".scoreDisplay").html(totalScore);
@@ -142,8 +136,8 @@
 
             if (randomNumber == totalScore){
                 alert("You won!");
-                win++;
-                $("#wins").html(win);
+                wins++;
+                $("#wins").html(wins);
                 $(".scoreDisplay").html();
             }
             else if (randomNumber < totalScore) {
